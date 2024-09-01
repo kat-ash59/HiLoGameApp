@@ -82,7 +82,10 @@ public class HiLo
 				
 				if ((i >= 5) && (userGuess != computerGuess))
 				{
-					System.out.println("Sorry you loose, you took to many turns :(!!!!!\n\n");
+					
+					System.out.println("Sorry you loose, you took to many turns :(!!!!!");
+					System.out.println("\tYour last choice was " + userGuess);
+					System.out.println("\tThe computers number was " + computerGuess + "\n\n");
 					// should break out of for loop here
 					break;
 				}
