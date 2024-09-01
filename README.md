@@ -39,4 +39,6 @@ had to figure out where to put read so didn't read to many times
 
 also ran multiple times to ensure asthetically pleasing by adding new lines and fun comments
 
+don't forget to get new random number to play next game
+
 LOL grates against my nerves and inner QA to no have error handling LOL
