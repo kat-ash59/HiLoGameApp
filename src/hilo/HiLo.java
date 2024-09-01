@@ -52,6 +52,8 @@ public class HiLo
 		// set the computer guess to a random number between 1 - 20
 		computerGuess = randomNumber.nextInt(20);
 		
+		// what is the computer guess going into game
+		// System.out.println("computer guess = " + computerGuess);
 		
 		// going to print out the rules of Hi / Lo game
 		printRules();
@@ -114,6 +116,12 @@ public class HiLo
 			System.out.print("Please enter yes or no ");
 			userWantToPlay = keyboard.next();
 			
+			
+			// almost forgot that i needed to get a new random number
+			// lol was using same random number over and over again derp de derp
+			// set the computer guess to a random number between 1 - 20
+			computerGuess = randomNumber.nextInt(20);
+			// System.out.println("what is computer guess for new game = " + computerGuess);
 			
 						
 		} // end while loop
