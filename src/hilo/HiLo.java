@@ -37,11 +37,12 @@ import java.util.Random;
 
 public class HiLo 
 {
-
+	public static Scanner keyboard;
+	
 	public static void main(String[] args) 
 	{
 		// declare variables
-		Scanner keyboard = new Scanner(System.in);
+		keyboard = new Scanner(System.in);
 		int computerGuess = 0;
 		int userGuess = 0;
 		String userWantToPlay = "";
@@ -63,11 +64,25 @@ public class HiLo
 		System.out.print("Please enter yes or no ");
 		userWantToPlay = keyboard.next();
 		
+		// now need to validate if they entered "yes" or "no"
+		userWantToPlay = checkAnswer(userWantToPlay);
 		
-		while (userWantToPlay.equals("yes"))
+		// set firstime = true;
+		boolean firstTime = true;
+		
+		// added ignore case
+		while ((userWantToPlay.equalsIgnoreCase("yes"))  ||  (userWantToPlay.equalsIgnoreCase("y")))
 		{
 
-			System.out.print("\nPlease enter you next guess ");
+			if (firstTime)
+			{
+				System.out.print("\nPlease enter your first guess ");
+			}
+			else
+			{
+				firstTime = false;
+				System.out.print("\nPlease enter your next guess ");
+			}
 			userGuess = keyboard.nextInt();
 			
 			int i;
@@ -115,10 +130,13 @@ public class HiLo
 			
 			
 			// thing to note if user enters no it will end the while loop
+			// but need to make sure test for yes or no
 			System.out.println("Would you like to play again?");
 			System.out.print("Please enter yes or no ");
 			userWantToPlay = keyboard.next();
 			
+			// now need to validate if they entered "yes" or "no"
+			userWantToPlay = checkAnswer(userWantToPlay);
 			
 			// almost forgot that i needed to get a new random number
 			// lol was using same random number over and over again derp de derp
@@ -147,5 +165,23 @@ public class HiLo
 		
 	} // end printRules
 	
-
+	private static String checkAnswer(String userAnswer)
+	{
+		int leaveLoop = 0;
+		
+		while (leaveLoop == 0)
+		{
+			if ((userAnswer.equalsIgnoreCase("yes")) || (userAnswer.equalsIgnoreCase("y")) ||
+			    (userAnswer.equalsIgnoreCase("no")) || (userAnswer.equalsIgnoreCase("n")))
+			{
+				leaveLoop = 1;
+			}
+			else
+			{
+				System.out.print("Please enter yes or no ");
+				userAnswer = HiLo.keyboard.next();
+			}
+		}
+		return userAnswer;
+	}
 } // end HiLo class
